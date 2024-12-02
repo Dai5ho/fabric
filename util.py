@@ -96,7 +96,7 @@ class Utils:
         lakehouse_id = fabric_config['lakehouse_id']
         shortcut_connection_id = fabric_config['shortcut_connection_id']
         #shortcut_name = fabric_config['shortcut_name']
-        skip_if_shortcut_exists = False #True #fabric_config['skip_if_shortcut_exists']
+        skip_if_shortcut_exists = True #fabric_config['skip_if_shortcut_exists']
 
         max_retries = 3
         max_threads = 2
