@@ -133,8 +133,8 @@ class Utils:
 
                         url = f"https://{Utils.FABRIC_API_ENDPOINT}/v1/workspaces/{workspace_id}/items/{lakehouse_id}/shortcuts"
 
-                        if not skip_if_shortcut_exists:
-                            url += "?shortcutConflictPolicy=GenerateUniqueName"
+                       # if not skip_if_shortcut_exists:
+                           # url += "?shortcutConflictPolicy=GenerateUniqueName"
 
                         token = mssparkutils.credentials.getToken('pbi')
 
@@ -200,9 +200,9 @@ class Utils:
                 else:
                     print(f"∟ Skipped shortcut creation for '{table_name}'. Table type is not EXTERNAL.")
                     sc_skipped += 1
-            else:
-                print(f"∟ Skipped shortcut creation for '{table_name}'. Shortcut with the SAME NAME exists.")
-                sc_skipped += 1 
+           # else:
+            #    print(f"∟ Skipped shortcut creation for '{table_name}'. Shortcut with the SAME NAME exists.")
+             #   sc_skipped += 1 
             
         with ThreadPoolExecutor(max_workers=max_threads) as executor:
             executor.map(create_shortcut, tables)
