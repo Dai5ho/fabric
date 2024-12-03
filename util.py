@@ -219,8 +219,8 @@ def sync_dbx_uc_tables_to_onelake(databricks_config, fabric_config):
     uc_table_names = [f"{Utils.PREFIX}_{entry['catalog_name']}_{entry['schema_name']}_{entry['name']}" for entry in tables]
 
     #skipped_required = [name for name in uc_shortcuts if name not in uc_table_names] #[name for name in uc_shortcuts if name in uc_table_names]
-    deletions_required = [name for name in uc_shortcuts if name in uc_shortcuts] #[name for name in uc_shortcuts if name not in uc_table_names]
-    creations_required = [name for name in uc_table_names if name not in uc_shortcuts]
+    deletions_required = [name for name in uc_shortcuts] #if name in uc_shortcuts] #[name for name in uc_shortcuts if name not in uc_table_names]
+    creations_required = [name for name in uc_table_names] #if name not in uc_shortcuts]
 
     print(f"Started syncing from Unity Catalog to Fabric...")
 
