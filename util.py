@@ -230,6 +230,11 @@ def sync_dbx_uc_tables_to_onelake(databricks_config, fabric_config):
     if(consider_dbx_uc_table_changes): 
         sc_deleted, sc_failed_delete = Utils.delete_shortcuts(fabric_config, deletions_required)
 
+    # wait for syncing the deletion of shortcuts
+    print("Will wait for sync of Fabric")
+    time.sleep(15)
+    print("waited 15sec for sync")
+
     # Create shortcuts if not exist in Lakehouse
     if tables is not None:
         for entry in tables:
